@@ -1,0 +1,48 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="Day20.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="Content/Css/Cmmon.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            margin-left: 0px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="container">
+            <div class="logo">
+                <div class="div1">
+                    
+                    <asp:Image ID="ImgLogo" runat="server" ImageUrl="~/Content/Image/EClerxFinal_1.png" Width="281px" />
+                    
+                </div>
+                
+                <div class="div2">
+                    <asp:TextBox ID="TxtSearch" runat="server" Width="228px"></asp:TextBox>   
+                    <asp:Button ID="BtnSearch" runat="server" Text="Search" CssClass="auto-style1" />
+                    
+                </div>
+            </div>
+            <div class="sideBar">
+                <asp:LinkButton CausesValidation="false" PostBackUrl="~/HomePage.aspx" Text="Home Page" ID="BtnHome" runat="server" />
+                <br />
+                <asp:LinkButton CausesValidation="false" PostBackUrl="~/MobilePhone.aspx" Text="Mobile Phone" ID="BtnMobile" runat="server" />
+                <br />
+                <asp:LinkButton CausesValidation="false" PostBackUrl="~/FrmValidationExample.aspx" Text="Form validation" ID="BtnValidate" runat="server" />
+
+            </div>
+            <div class="content">
+                <asp:ContentPlaceHolder ID="Content" runat="server"></asp:ContentPlaceHolder>
+            </div>
+            <div class="footer"></div>
+        </div>
+    </form>
+</body>
+</html>
