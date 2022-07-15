@@ -18,7 +18,37 @@
                     </td>
                 </tr>
             </table>
-            <asp:GridView ID="GridDepartment" runat="server"></asp:GridView>
+            <asp:GridView AutoGenerateColumns="false" ID="GridDepartment" runat="server">
+                <Columns>
+                    <asp:TemplateField HeaderText="Employee Code">
+                        <ItemTemplate>
+                            <asp:Label Text='<%#Eval("cEmployeeCode") %>' ID="lblEmpCode" runat="server" />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="First Name">
+                        <ItemTemplate>
+                            <asp:Label Text='<%#Eval("vFirstName") %>' ID="lblFirstName" runat="server" />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="City">
+                        <ItemTemplate>
+                            <asp:Label Text='<%#Eval("cCity") %>' ID="lblCity" runat="server" />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Department Name">
+                        <ItemTemplate>
+                            <asp:Label Text='<%#Eval("vDepartmentName") %>' ID="lblDepartmentName" runat="server" />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Position Code">
+                        <ItemTemplate>
+                            <asp:Label Text='<%#Eval("cPositionCode") %>' ID="lblPositionCode" runat="server" />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+
+            </asp:GridView>
+           
         </div>
     </form>
 </body>
