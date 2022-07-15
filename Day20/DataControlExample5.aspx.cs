@@ -13,6 +13,9 @@ namespace Day20
     public partial class DataControlExample5 : System.Web.UI.Page
     {
         private SqlConnection con = null;
+        private SqlDataAdapter adapter = null;
+        private DataSet ds = null;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -25,14 +28,13 @@ namespace Day20
         {
             using (con = new SqlConnection(ConfigurationManager.ConnectionStrings["HRConnectionString"].ConnectionString))
             {
-                using(SqlCommand cmd = new SqlCommand("usp_Display", con))
+                using(adapter=new SqlDataAdapter("usp_Display", con))
                 {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    SqlDataAdapter adapter = new SqlDataAdapter();
-                    adapter.SelectCommand=cmd;
-                    DataSet ds = new DataSet();
-                    adapter.Fill(ds,"Department");
-                    GridDisplay.DataSource = ds.Tables["Department"];
+                    adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    ds = new DataSet();
+                    adapter.Fill(ds,"Dept");
+                    DataTable dt = ds.Tables["Dept"];
+                    GridDisplay.DataSource = dt;
                     GridDisplay.DataBind();
                 }
             }
